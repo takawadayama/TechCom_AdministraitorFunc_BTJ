@@ -2,12 +2,11 @@ import os
 import sys
 import pandas as pd
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 
-# プロジェクトのルートディレクトリをパスに追加
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+# モジュール検索パスに現在のディレクトリの親ディレクトリを追加
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
-from backend.DBControl.models import Base, User, EmploymentType, Role, Department, Position, Gender
+from DBControl.models import Base, User, EmploymentType, Role, Department, Position, Gender
 
 # データベースファイルのパス
 db_path = './backend/DBControl/TC_dummy.db'
@@ -39,7 +38,7 @@ sheet_to_table = {
 
 # Pandasの型設定
 dtype_settings = {
-    'Users': {'EmployeeCode': str}
+    'Users': {'EmployeeCode': str, 'DateOfBirth': str, 'JoinDate': str}
 }
 
 for sheet_name, table_name in sheet_to_table.items():

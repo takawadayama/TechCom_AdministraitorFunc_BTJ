@@ -76,3 +76,17 @@ class Role(RoleBase):
 
     class Config:
         orm_mode = True
+
+
+class UserDisplay(BaseModel):
+    UserID: int
+    EmployeeCode: str
+    DepartmentName: str
+    LastName: str
+    FirstName: str
+    GenderName: str
+    RoleName: str
+    EmploymentTypeName: str
+
+    class Config:
+        orm_mode = True
